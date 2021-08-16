@@ -1,4 +1,3 @@
-import './App.css';
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
@@ -6,7 +5,8 @@ import { useState, useEffect } from 'react'
 function App() {
   const [quote, setQuote] = useState('')
   const [myQuote, setMyQuote] = useState('')
-  // favourite quotes
+
+  // favourite quotes container
   const [favouriteQuotes, setFavouriteQuotes] = useState([])
 
   useEffect(()=>{
@@ -23,7 +23,7 @@ function App() {
     })
   }
 
-  function addQuotes(){
+  function addQuote(){
     if(favouriteQuotes.length === 0){
       setFavouriteQuotes([...favouriteQuotes, quote])
     }else{
@@ -62,16 +62,16 @@ function App() {
     }
   }
   return (
-    <div classname="container">
-      <div className="row">
-        <div classname="col-8 mx-auto">
+    <div>
+      <div>
+        <div>
           <h1>Kanye-West Quote</h1>
         </div>
-        <div classname="col-8 mx-auto">
-          <h3>{quote}</h3>
-          <div classname="d-flex">
+        <div>
+          <h3>- {quote}</h3>
+          <div>
             <button onClick={getQuote}>Get Quote</button>
-            <button onClick={addQuotes}>Add Favourite</button>
+            <button onClick={addQuote}>Add Favourite</button>
           </div>
           <ul>
             {favouriteQuotes.map(quote=>{
